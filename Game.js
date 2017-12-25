@@ -63,11 +63,15 @@ Game.prototype.updateStatus = function(){
 
 Game.prototype.isMoveAlreadyPlayed = function(move){
   let totalMoves = this.getTotalMoves();
+  console.log('get Total moves function giving',totalmoves);
+  console.log('current move'+move);
+  console.log('total moves',this.totalMoves);
   return totalMoves.includes(move);
 }
 
 Game.prototype.playMove = function(move){
   this.totalMoves.push(move);
+
   let player = this.getCurrentPlayer();
   player.addMove(move);
   this.updateStatus();

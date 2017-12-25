@@ -51,7 +51,7 @@ Game.prototype.getCurrentPlayer = function(){
 Game.prototype.updateStatus = function(){
   let player = this.getCurrentPlayer();
   if (player.hasWon()){
-    this.totalMoves = this.getCell_IDS_OfTable();
+    this.totalMoves = [1,2,3,4,5,6,7,8,9];
     return this.status = player.PlayerName+' won';
   } else if (this.isGameDrawn()){
     return this.status = 'Draw';

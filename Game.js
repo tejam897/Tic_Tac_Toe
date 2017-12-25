@@ -1,5 +1,6 @@
 //const Player = require('./TTTplayer.js');
 
+
 const Game = function(level = 1){
   this.level = level;
   this.players = this.createPlayerList();
@@ -20,7 +21,9 @@ Game.prototype.isGameDrawn = function(){
   return totalMovesPlayed.length == 9;
 }
 
-Game.prototype.getCell_IDS_OfTable = function(){
+
+
+Game.prototype.getCellIDsOfTable = function(){
   let level = this.level;
   let gridSize = level+2;
   let movesToPlay = gridSize*gridSize;
@@ -51,7 +54,7 @@ Game.prototype.getCurrentPlayer = function(){
 Game.prototype.updateStatus = function(){
   let player = this.getCurrentPlayer();
   if (player.hasWon()){
-    this.totalMoves = [1,2,3,4,5,6,7,8,9];
+    this.totalMoves = this.getCellIDsOfTable();
     return this.status = player.PlayerName+' won';
   } else if (this.isGameDrawn()){
     return this.status = 'Draw';
@@ -61,20 +64,16 @@ Game.prototype.updateStatus = function(){
   return this.status = player.PlayerName+' Turn';
 }
 
+
 Game.prototype.isMoveAlreadyPlayed = function(move){
-  let totalMoves = this.getTotalMoves();
-  console.log('get Total moves function giving',totalMoves);
-  console.log('current move'+move);
-  console.log('total moves',this.totalMoves);
+  let totalMoves = this.totalMoves;
   return totalMoves.includes(move);
 }
 
 Game.prototype.playMove = function(move){
   this.totalMoves.push(move);
-
   let player = this.getCurrentPlayer();
   player.addMove(move);
   this.updateStatus();
 }
-
 //module.exports = Game;

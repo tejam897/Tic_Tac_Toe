@@ -1,0 +1,28 @@
+body {
+  background-color: #c7c0b5;
+}
+
+table{
+  border: 1px solid black;
+  width: 300;
+  height: 300;
+  border-collapse: collapse;
+  margin: 0px auto;
+}
+tr, td {
+  border: 2px solid black;
+  width: 100px;
+  height: 100px;
+}
+
+h1 {
+  font-size: 30px
+}
+.game {
+  text-align: center;
+}
+
+#startButton {
+  margin-top: 20px;
+  font-size: 20px
+}
